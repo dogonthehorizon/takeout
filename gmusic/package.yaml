@@ -1,0 +1,53 @@
+name:                gmusic
+version:             0.1.0
+#synopsis:
+#description:
+homepage:            dogonthehorizon/takeout
+license:             BSD3
+author:              Fernando Freire
+copyright:           2020 Fernando Freire
+category:            CLI
+
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Wincomplete-record-updates
+  - -Wincomplete-uni-patterns
+  - -Wredundant-constraints
+  - -fno-warn-partial-type-signatures
+  - -fno-warn-name-shadowing
+  - -fwarn-tabs
+  - -fwarn-unused-imports
+  - -fwarn-missing-signatures
+  - -fwarn-incomplete-patterns
+  - -fwrite-ide-info
+  - -hiedir=.hie
+
+default-extensions:
+  - BangPatterns
+  - DefaultSignatures
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - EmptyCase
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GeneralizedNewtypeDeriving
+  - InstanceSigs
+  - LambdaCase
+  - MultiParamTypeClasses
+  - MultiWayIf
+  - OverloadedStrings
+  - PatternSynonyms
+  - ScopedTypeVariables
+  - TemplateHaskell
+
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
