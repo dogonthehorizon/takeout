@@ -44,10 +44,18 @@ default-extensions:
   - PatternSynonyms
   - ScopedTypeVariables
   - TemplateHaskell
+  - NamedFieldPuns
 
 
 dependencies:
   - base >= 4.7 && < 5
+  - cassava
+  - text
+  - vector
+  - bytestring
+  - containers
+  - directory
+  - pretty-simple
 
 library:
   source-dirs: src

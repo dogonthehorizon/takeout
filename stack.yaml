@@ -43,6 +43,14 @@ packages:
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
 # extra-deps: []
+extra-deps:
+  - dir-traverse-0.2.3.0@sha256:adcc128f201ff95131b15ffe41365dc99c50dc3fa3a910f021521dc734013bfa,2137
+  - extensions-0.0.0.1@sha256:16517ab9df3dd6c7a20da746c8ed02cfd59c8cb40ae5719aef8b5dd4edceadc0,3993
+  - ghc-exactprint-0.6.3.3@sha256:384e1066c192ed60dc12443b7aca75a4a4adcc47f829336c21ed007596fe683f,9446
+  - microaeson-0.1.0.0@sha256:43dd72c13b2cde29d3fb9a7a67178b6eaaa4280bb6809c52fb4a32487bd5cb25,3318
+  - trial-0.0.0.0@sha256:6eac7caf6fe4acb34a446a7f89142e8dc6d18b72376a790db730c7f4693e4627,4160
+  - trial-optparse-applicative-0.0.0.0@sha256:ba05edfc327a281766df5e0f44d91229e6a98afaf59abe1894b293453f076192,2449
+  - trial-tomland-0.0.0.0@sha256:baf2f085376392e71bb725b8626dbfa5e91d2af4b2e5690c7c69574d2462497f,2441
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
