@@ -10,7 +10,9 @@ module Data.Google.Music.Playlist (
   Shareable
   ) where
 
+import           Control.Exception    (catch)
 import qualified Data.Bifunctor       as Bifunctor
+import qualified Data.ByteString      as BS
 import qualified Data.ByteString.Lazy as BL
 import           Data.Csv             (DefaultOrdered, FromField (parseField),
                                        FromNamedRecord (..), decodeByName, (.:))
@@ -94,7 +96,7 @@ vecToTrackListing v =
 
 readCsv :: FromNamedRecord a => Text -> IO (Either Text (Vector a))
 readCsv f = do
-  csvData <- decodeByName <$> BL.readFile (T.unpack f)
+  csvData <- decodeByName . BL.fromStrict <$> BS.readFile (T.unpack f)
   return $ snd <$> Bifunctor.first T.pack csvData
 
 readPlaylistEntry :: Text -> IO (Either Text (Vector GooglePlaylistEntry))
@@ -106,10 +108,11 @@ readMetadataEntry = readCsv
 
 readPlaylist :: Text -> IO (Either Text Playlist)
 readPlaylist f = do
-  metadata <- fmap Vector.head <$> readMetadataEntry (f <> "Metadata.csv")
-  files    <- fmap T.pack <$> Dir.listDirectory (T.unpack $ f <> "Tracks/")
-  entries  <-
-    sequence $ readPlaylistEntry . (\x -> f <> "Tracks/" <> x) <$> files
+  metadata <- fmap Vector.head <$> readMetadataEntry (f <> "/Metadata.csv")
+  files    <- fmap T.pack <$> Dir.listDirectory (T.unpack $ f <> "/Tracks/")
+  print files
+  entries <-
+    sequence $ readPlaylistEntry . (\x -> f <> "/Tracks/" <> x) <$> files
   return
     $   Playlist
     <$> metadata

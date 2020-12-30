@@ -48,6 +48,13 @@ default-extensions:
 
 dependencies:
   - base >= 4.7 && < 5
+  - gmusic
+  - free
+  - text
+  - directory
+  - pretty-simple
 
-library:
-  source-dirs: src
+executables:
+  takeout:
+    source-dirs: src
+    main: Main.hs
